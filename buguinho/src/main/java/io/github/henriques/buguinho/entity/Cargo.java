@@ -6,14 +6,12 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data //Get, set, equals e hashcode
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Document(collection = "cargos")
 public class Cargo {
 
