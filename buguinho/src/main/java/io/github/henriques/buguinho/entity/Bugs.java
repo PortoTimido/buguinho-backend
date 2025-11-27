@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.time.LocalDate;
+import java.time.Instant;
 
 @Data
 @Builder
@@ -24,7 +24,7 @@ public class Bugs {
     private String descricao;
     private String severidade;
     private String tipo;
-    private LocalDate dataIdentificacao;
+    private Instant dataIdentificacao;
     private String status;
     private String desenvolvedorResponsavel;
 }
