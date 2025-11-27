@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import io.github.henriques.buguinho.entity.Bugs;
+import io.github.henriques.buguinho.entity.Bug;
 
-public interface BugRepository extends MongoRepository<Bugs, String> {
-    List<Bugs> findByProjeto(String projeto);
-    List<Bugs> findByTipo(String tipo);
-    List<Bugs> findByDesenvolvedorResponsavel(String dev);
-    List<Bugs> findBySeveridade(String severidade);
+public interface BugRepository extends MongoRepository<Bug, String> {
+    List<Bug> findByProjeto(String projeto);
+    List<Bug> findByTipo(String tipo);
+    List<Bug> findByDesenvolvedorResponsavel(String dev);
+    List<Bug> findBySeveridade(String severidade);
 }

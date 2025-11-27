@@ -13,7 +13,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "bugs")
-public class Bugs {
+public class Bug {
 
     @MongoId(targetType = FieldType.OBJECT_ID)
     private String id;
