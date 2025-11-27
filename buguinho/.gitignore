@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Senhas
+config/application-secrets.properties
