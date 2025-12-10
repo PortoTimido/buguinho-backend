@@ -28,7 +28,8 @@ public class BugService {
         return bugRepository.findById(id);
     }
 
-    public Bug create(Bug bug) {
+    public Bug create(Bug bug) {      
+        bug.setId(null);
         return bugRepository.save(bug);
     }
 
