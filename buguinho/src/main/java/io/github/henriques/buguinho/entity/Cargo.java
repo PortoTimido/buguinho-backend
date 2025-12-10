@@ -1,11 +1,21 @@
 package io.github.henriques.buguinho.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-@JsonFormat(shape = JsonFormat.Shape.STRING)
 public enum Cargo {
-    Desenvolvedor_FrontEnd,
-    Desenvolvedor_BackEnd,
-    Testador,
-    Dba
+    Desenvolvedor_FrontEnd("Desenvolvedor FrontEnd"),
+    Desenvolvedor_BackEnd("Desenvolvedor BackEnd"),
+    Testador("Testador"),
+    Dba("DBA");
+
+    private final String displayName;
+
+    Cargo(String displayName) {
+        this.displayName = displayName;
+    }
+
+    @JsonValue
+    public String getDisplayName() {
+        return displayName;
+    }
 }

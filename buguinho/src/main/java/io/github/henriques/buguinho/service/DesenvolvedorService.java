@@ -29,6 +29,7 @@ public class DesenvolvedorService {
 
     /***** INSERE UM NOVO DESENVOLVEDOR ******/
     public Desenvolvedor insertDesenvolvedor(Desenvolvedor desenvolvedor) {
+        desenvolvedor.setId(null);
         return desenvolvedorRepository.save(desenvolvedor);
     }
 
