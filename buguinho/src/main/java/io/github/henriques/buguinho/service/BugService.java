@@ -1,15 +1,17 @@
 package io.github.henriques.buguinho.service;
 
-import io.github.henriques.buguinho.entity.Bug;
-import io.github.henriques.buguinho.repository.BugRepository;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 import java.util.Map;
-import java.time.Instant;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import io.github.henriques.buguinho.entity.Bug;
+import io.github.henriques.buguinho.repository.BugRepository;
 @Service
 public class BugService {
     
@@ -30,6 +32,10 @@ public class BugService {
 
     public Bug create(Bug bug) {      
         bug.setId(null);
+
+        if (bug.getDataIdentificacao() == null || bug.getDataIdentificacao().isBlank()) {
+            bug.setDataIdentificacao(currentDateString());
+        }
         return bugRepository.save(bug);
     }
 
@@ -66,13 +72,21 @@ public class BugService {
             }
             if (alteracao.containsKey("dataIdentificacao")) {
                 Object v = alteracao.get("dataIdentificacao");
-                if (v instanceof String) {
-                    bug.setDataIdentificacao(Instant.parse((String) v));
+                if (v == null) {
+                    bug.setDataIdentificacao(currentDateString());
+                } else if (v instanceof String) {
+                    bug.setDataIdentificacao((String) v);
+                } else {
+                    bug.setDataIdentificacao(v.toString());
                 }
             }
 
             return bugRepository.save(bug);
         });
+    }
+
+    private String currentDateString() {
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("ddMMyyyy"));
     }
 
 }

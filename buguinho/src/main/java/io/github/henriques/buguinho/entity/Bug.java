@@ -7,8 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.time.Instant;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,7 +21,7 @@ public class Bug {
     private String descricao;
     private String severidade; // baixo, alto, médio ou crítico
     private String tipo;
-    private Instant dataIdentificacao;
+    private String dataIdentificacao; // armazenada como string no MongoDB
     private String status; // aberto, em progresso, resolvido, fechado
     private String desenvolvedorResponsavel;
 }
