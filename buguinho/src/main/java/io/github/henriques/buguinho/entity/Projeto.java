@@ -18,5 +18,7 @@ public class Projeto {
     @MongoId(targetType = FieldType.OBJECT_ID)
     private String id;
     private String nome;
-
+    private String descricao;
+    private Instant dataCriacao;
+    private Instant dataFim;
 }
