@@ -20,6 +20,6 @@ public class Projeto {
     private String nome;
     private String status;
     private String descricao;
-    private Instant dataCriacao;
-    private Instant dataFim;
+    private String dataCriacao;
+    private String dataFim;
 }
